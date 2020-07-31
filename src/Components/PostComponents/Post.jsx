@@ -10,9 +10,8 @@ const Post = props => {
 
     return (
         <PostDiv>
-            <PostA href={props.address}>{props.address}</PostA>
+            <PostA href={props.story.url}>{props.story.url} </PostA>
             {/* <VoteBlock /> */}
-            <div>Hi</div>
         </PostDiv>
     )
 }

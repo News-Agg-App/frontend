@@ -16,7 +16,7 @@ export const getStories = () => dispatch => {
         .get(`${beURL}posts`)
         .then(res => {
             console.log('res from getStories', res)
-            dispatch({ type: GET_STORIES_SUCCESS, payload: res })
+            dispatch({ type: GET_STORIES_SUCCESS, payload: res.data })
 
         })
         .catch(err => {

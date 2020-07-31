@@ -8,17 +8,25 @@ const PostList = _ => {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
 
+    
+
     useEffect(() => {
         dispatch(getStories())
     }, [])
 
+    useEffect(_ => {
+        console.log('state.isLoading', state.isLoading)
+        console.log('state.stories', state.stories)
+    }, [state.isLoading])
+
+    
+
     return (
         <div>
-            {state.stories.length > 0 && state.stories.map(story => (
+            {!state.isLoading && state.stories.length > 0 && state.stories.map(story => (
                 <Post key={story.id} story={story} />
-
             ))}
-
+            
         </div>
     )
 }
