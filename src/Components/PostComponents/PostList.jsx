@@ -14,7 +14,7 @@ const PostList = _ => {
 
     return (
         <div>
-            {state.stories.map(story => (
+            {state.stories.length > 0 && state.stories.map(story => (
                 <Post key={story.id} story={story} />
 
             ))}
