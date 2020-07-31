@@ -26,6 +26,7 @@ export const reducer = (state = initialState, action) => {
     case GET_STORIES_SUCCESS:
       return {
         ...state,
+        stories: action.payload,
         isLoading: false
       }
     case GET_STORIES_FAILURE:

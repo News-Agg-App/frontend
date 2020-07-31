@@ -1,16 +1,25 @@
-import React from "react"
-import {useSelector, useDispatch} from "react-redux"
-// import {action} from "../../actions"
+import React, { useEffect, useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { getStories } from "../../Store/Actions"
+import Post from "./Post"
 
-const PostList = _ =>
-{
+
+const PostList = _ => {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
 
-    return (
-        <>
+    useEffect(() => {
+        dispatch(getStories())
+    }, [])
 
-        </>
+    return (
+        <div>
+            {state.stories.map(story => (
+                <Post key={story.id} story={story} />
+
+            ))}
+
+        </div>
     )
 }
 
